@@ -1,14 +1,21 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { useState } from "react";
 // icons
 import { AiOutlineClose, AiOutlineMail, AiOutlineMenu } from "react-icons/ai";
 import { FaGithub, FaLinkedinIn } from "react-icons/fa";
 import { BsFillPersonLinesFill } from "react-icons/bs";
 
 const Navbar = () => {
+  // state
+  const [showMobileMenu, setShowMobileMenu] = useState(false);
+
+  // methods
+  const toggleMobileMenu = () => setShowMobileMenu(!showMobileMenu);
+
   return (
-    <div className="fixed w-full shadow-xl z-10 one">
+    <div className="fixed flex w-full shadow-xl z-10">
       <div className="flex justify-between items-center w-full h-full px-2 2xl:px=16">
         <Image
           src="/../public/assets/images/Bassam-logo.png"
@@ -22,31 +29,34 @@ const Navbar = () => {
         {/* laptop menu */}
         <ul className="hidden md:flex">
           <Link href="/">
-            <li className={linkItem_lg}>Home</li>
+            <li className={linkItemLaptopStyle}>Home</li>
           </Link>
           <Link href="/">
-            <li className={linkItem_lg}>About</li>
+            <li className={linkItemLaptopStyle}>About</li>
           </Link>
           <Link href="/">
-            <li className={linkItem_lg}>Skills</li>
+            <li className={linkItemLaptopStyle}>Skills</li>
           </Link>
           <Link href="/">
-            <li className={linkItem_lg}>Projects</li>
+            <li className={linkItemLaptopStyle}>Projects</li>
           </Link>
           <Link href="/">
-            <li className={linkItem_lg}>Contact</li>
+            <li className={linkItemLaptopStyle}>Contact</li>
           </Link>
         </ul>
 
-        <div className="pt-40">
+        <div onClick={toggleMobileMenu} className="md:hidden">
           <AiOutlineMenu size={25} />
         </div>
       </div>
 
+      {/* mobile */}
       {/* menu overlay */}
-      <div className="fixed left-0 top-0 w-full h-screen bg-black/70">
-        {/* actual menu */}
-        <div className="fixed left-0 top-0 w-[75%] sm:w-[60%] md:w-[45%] h-screen bg-[#ecf0f3] p-10 ease-in duration-500">
+      <div className={showMobileMenu ? mobileMenuOverlayStyle : ""}>
+        {/* menu-aside */}
+        <aside
+          className={showMobileMenu ? menuAsideStyle : menuAsideHiddenStyle}
+        >
           {/* menu top-section */}
           <div>
             {/* menu icon */}
@@ -59,7 +69,10 @@ const Navbar = () => {
               />
 
               {/* closing icon */}
-              <div className="rounded-full shadow-lg shadow-gray-400 p-3 cursor-pointer">
+              <div
+                onClick={toggleMobileMenu}
+                className="rounded-full shadow-lg shadow-gray-400 p-3 cursor-pointer"
+              >
                 <AiOutlineClose />
               </div>
 
@@ -76,19 +89,19 @@ const Navbar = () => {
           <div className="py-4 flex flex-col">
             <ul className="uppercase">
               <Link href="/">
-                <li className={linkItem_sm}>Home</li>
+                <li className={linkItemMobileStyle}>Home</li>
               </Link>
               <Link href="/">
-                <li className={linkItem_sm}>About</li>
+                <li className={linkItemMobileStyle}>About</li>
               </Link>
               <Link href="/">
-                <li className={linkItem_sm}>Skills</li>
+                <li className={linkItemMobileStyle}>Skills</li>
               </Link>
               <Link href="/">
-                <li className={linkItem_sm}>Projects</li>
+                <li className={linkItemMobileStyle}>Projects</li>
               </Link>
               <Link href="/">
-                <li className={linkItem_sm}>Contacts</li>
+                <li className={linkItemMobileStyle}>Contacts</li>
               </Link>
             </ul>
 
@@ -100,31 +113,36 @@ const Navbar = () => {
 
               {/* social icons */}
               <div className="flex items-center justify-between my-4 w-full sm:w-[80%]">
-                <div className={socialIcon}>
+                <div className={socialIconStyle}>
                   <FaLinkedinIn />
                 </div>
-                <div className={socialIcon}>
+                <div className={socialIconStyle}>
                   <FaGithub />
                 </div>
-                <div className={socialIcon}>
+                <div className={socialIconStyle}>
                   <AiOutlineMail />
                 </div>
-                <div className={socialIcon}>
+                <div className={socialIconStyle}>
                   <BsFillPersonLinesFill />
                 </div>
               </div>
             </div>
           </div>
-        </div>
+        </aside>
       </div>
     </div>
   );
 };
 
 // styles
-const linkItem_lg = "ml-10 text-sm uppercase hover:border-b";
-const linkItem_sm = "py-4 text-sm";
-const socialIcon =
+const mobileMenuOverlayStyle =
+  "md:hidden fixed left-0 top-0 w-full h-screen bg-black/70";
+const menuAsideStyle =
+  "fixed left-0 top-0 w-[75%] sm:w-[60%] md:w-[45%] h-screen bg-[#ecf0f3] p-10 ease-in duration-500 overflow-y-auto";
+const menuAsideHiddenStyle = "fixed left-[-200%] p-10 ease-in duration-500";
+const linkItemLaptopStyle = "ml-10 text-sm uppercase hover:border-b";
+const linkItemMobileStyle = "py-4 text-sm";
+const socialIconStyle =
   "rounded-full shadow-lg shadow-gray-400 p-3 cursor-pointer hover:scale-105 ease-in duration-300";
 
 export default Navbar;
