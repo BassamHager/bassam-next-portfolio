@@ -52,7 +52,10 @@ const Navbar = () => {
 
       {/* mobile */}
       {/* menu overlay */}
-      <div className={showMobileMenu ? mobileMenuOverlayStyle : ""}>
+      <div
+        // onClick={toggleMobileMenu} fix with z-index
+        className={showMobileMenu ? mobileMenuOverlayStyle : ""}
+      >
         {/* menu-aside */}
         <aside
           className={showMobileMenu ? menuAsideStyle : menuAsideHiddenStyle}

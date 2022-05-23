@@ -1,6 +1,7 @@
 import Head from "next/head";
 // components
 import Navbar from "../components/molecules/Navbar";
+import Main from "../components/molecules/Main";
 
 export default function Home() {
   return (
@@ -12,6 +13,8 @@ export default function Home() {
       </Head>
 
       <Navbar />
+
+      <Main />
     </div>
   );
 }
