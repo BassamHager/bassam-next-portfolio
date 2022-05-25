@@ -2,6 +2,7 @@ import Head from "next/head";
 // components
 import Navbar from "../components/molecules/Navbar";
 import Main from "../components/molecules/Main";
+import About from "../components/molecules/About";
 
 export default function Home() {
   return (
@@ -15,6 +16,8 @@ export default function Home() {
       <Navbar />
 
       <Main />
+
+      <About />
     </div>
   );
 }
