@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 
 const About = () => {
   return (
@@ -32,7 +33,13 @@ const About = () => {
           </p>
 
           <div className="w-full h-auto shadow-xl shadow-gray-400 rounded-xl flex items-center justify-center p-4 hover:scale-105 ease-in duration-300 ">
-            <img src="" alt="Bassam in the office" className="rounded-xl" />
+            <Image
+              src="/../public/assets/images/BH.jpeg"
+              alt="Bassam in the office"
+              className="rounded-xl"
+              width="200"
+              height="200"
+            />
           </div>
         </div>
       </div>
