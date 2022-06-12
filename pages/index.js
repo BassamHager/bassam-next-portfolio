@@ -1,9 +1,10 @@
-import Head from "next/head";
 // components
+import Head from "next/head";
 import Navbar from "../components/molecules/Navbar";
 import Main from "../components/molecules/Main";
 import About from "../components/molecules/About";
 import Skills from "../components/molecules/Skills";
+import Projects from "../components/molecules/projects/Projects";
 
 export default function Home() {
   return (
@@ -21,6 +22,8 @@ export default function Home() {
       <About />
 
       <Skills />
+
+      <Projects />
     </div>
   );
 }
