@@ -41,6 +41,11 @@
 
   .project-card-body {
   }
+  .project-card:hover.project-title-hover h4 {
+    color: #fff;
+    padding-top: 1rem;
+    transition: all 0.3s ease-in;
+  }
 }
 
 /*
