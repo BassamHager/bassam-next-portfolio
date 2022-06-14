@@ -16,7 +16,7 @@ const Projects = () => {
           />
           <ProjectCard
             imgURL="/../public/assets/images/projects/dev_connector_19.jpg"
-            projectTitle="dev_connector_19"
+            projectTitle="HackYourSocial"
             projectDesc="HackYourSocial is a full-stack social network web application built with the MERN stack. :bowtie:
             Please click to view HackYourSocial ✌️
             HackYourSocial allows developers to interact with each other by creating profiles showing their skills, education, experiences and enables others to get accesses to their other social media and github, also enables them to share posts, comments, likes and other types of content. 👍"
